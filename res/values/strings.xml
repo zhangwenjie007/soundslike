@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">弦外之音</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="quickshot">快打旋风</string>
+   
+    <string name="img_desc">图片描述</string>
+    <string-array name="play_list">
+        <item>足球小将</item>
+        <item>快打旋风</item>
+    </string-array>
+    <string-array name="mix_strlist">
+        <item>快打旋风海贼王火影忍者死神银魂围棋少年好</item>
+        <item>拳皇97争霸格斗通关英雄救美老爸阻止爱情</item>
+    </string-array>
+</resources>

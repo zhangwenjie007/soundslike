@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:layout_width="fill_parent"  
+    android:layout_height="fill_parent"  
+    android:orientation="vertical"
+    android:background="@drawable/background" >  
+   
+    
+    <ImageView
+        android:id="@+id/iv_play"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/img_desc"
+        android:background="@drawable/btn_play_music"/>
+    
+    <LinearLayout
+        android:id="@+id/ll_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:contentDescription="@string/img_desc"
+        android:layout_below="@+id/iv_play">
+        
+    </LinearLayout>
+    
+    <GridView 
+        android:id="@+id/gv_mix_result_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+       	android:layout_alignParentBottom="true"
+        android:verticalSpacing="5dp"
+    	android:horizontalSpacing="5dp"
+    	android:numColumns="auto_fit"
+    	android:columnWidth="100dp"
+    	android:stretchMode="columnWidth"
+    	android:gravity="center"  />
+
+   
+</RelativeLayout>

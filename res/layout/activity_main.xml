@@ -3,40 +3,88 @@
     android:layout_width="fill_parent"  
     android:layout_height="fill_parent"  
     android:orientation="vertical"
-    android:background="@drawable/background" >  
+    android:background="@color/pure_while" >  
    
-    
-    <ImageView
-        android:id="@+id/iv_play"
-        android:layout_width="50dip"
-        android:layout_height="50dip"
-        android:layout_centerInParent="true"
-        android:contentDescription="@string/img_desc"
-        android:background="@drawable/btn_play_music"/>
-    
-    <LinearLayout
-        android:id="@+id/ll_answer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal"
-        android:contentDescription="@string/img_desc"
-        android:layout_below="@+id/iv_play">
-        
-    </LinearLayout>
-    
-    <GridView 
-        android:id="@+id/gv_mix_result_layout"
+   <FrameLayout
+        android:id="@+id/tab_action_layout"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-       	android:layout_alignParentBottom="true"
-        android:verticalSpacing="5dp"
-    	android:horizontalSpacing="5dp"
-    	android:numColumns="auto_fit"
-    	android:columnWidth="100dp"
-    	android:stretchMode="columnWidth"
-    	android:gravity="center"  />
+        android:layout_height="@dimen/title_bar_hight"
+        android:background="@color/pt_top_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="visible" >
 
-   
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical" 
+            android:background="@drawable/bg_navigationbar_repeat">
+
+            <TextView
+                android:id="@+id/tab_dialer"
+                style="@style/home_title"
+                android:text="shouye"
+                android:background="@drawable/home_bg_list_item_selector" />
+
+            <RelativeLayout
+                android:id="@+id/tab_contacts_layout"
+                android:layout_width="0dip"
+                android:layout_height="@dimen/title_bar_hight"
+                android:layout_weight="1"
+                android:background="@drawable/home_bg_list_item_selector" >
+
+                <TextView
+                    android:id="@+id/tab_contacts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:duplicateParentState="true"
+                    android:gravity="center_vertical"
+                    android:text="play"
+                    android:textColor="@color/white_text_orange_return"
+                    android:textSize="@dimen/title" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tab_snsinfo"
+                style="@style/home_title"
+                android:background="@drawable/home_bg_list_item_selector"
+                android:text="allsong" />
+
+            <RelativeLayout
+                android:id="@+id/tab_circle"
+                android:layout_width="0dip"
+                android:layout_height="@dimen/title_bar_hight"
+                android:layout_weight="1"
+                android:background="@drawable/home_bg_list_item_selector" >
+
+                <TextView
+                    android:id="@+id/tab_circle_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:duplicateParentState="true"
+                    android:gravity="center_vertical"
+                    android:text="group"
+                    android:textColor="@color/white_text_orange_return"
+                    android:textSize="@dimen/title" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/cursor"
+            android:layout_width="10dip"
+            android:layout_height="5dip"
+            android:layout_gravity="bottom"
+            android:scaleType="matrix"
+            android:src="@color/pt_deep_pink" />
+    </FrameLayout>
+    
+    <com.game.soundslike.widget.TabViewPage
+        android:id="@+id/tvp_main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+
 </RelativeLayout>

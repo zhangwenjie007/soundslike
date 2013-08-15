@@ -4,4 +4,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="key_height">50.0dip</dimen>
+    <dimen name="play_btn_w">50dip</dimen>
+    <dimen name="play_btn_h">50dip</dimen>
+    <dimen name="title_bar_hight">48dip</dimen>
+    <dimen name="title">48dip</dimen>
 </resources>

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <resources>
   <color name="lightblack">#FFFFFF</color>
+  <color name="pure_while">#ffffff</color>
+  <color name="home_bg_pressed">#00FFFF</color>
+  <color name="transparent">#00ffffff</color>
+  <color name="white_text_orange_return">#ffffdd</color>
+  <color name="pt_deep_pink">#ffff00</color>
+  <color name="pt_top_bg">#888888</color>
+  
 </resources>

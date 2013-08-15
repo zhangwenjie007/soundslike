@@ -15,7 +15,13 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int home_bg_pressed=0x7f060002;
         public static final int lightblack=0x7f060000;
+        public static final int pt_deep_pink=0x7f060005;
+        public static final int pt_top_bg=0x7f060006;
+        public static final int pure_while=0x7f060001;
+        public static final int transparent=0x7f060003;
+        public static final int white_text_orange_return=0x7f060004;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -27,36 +33,55 @@ public final class R {
         public static final int activity_horizontal_margin=0x7f070000;
         public static final int activity_vertical_margin=0x7f070001;
         public static final int key_height=0x7f070002;
+        public static final int play_btn_h=0x7f070004;
+        public static final int play_btn_w=0x7f070003;
+        public static final int title=0x7f070006;
+        public static final int title_bar_hight=0x7f070005;
     }
     public static final class drawable {
         public static final int background=0x7f020000;
-        public static final int btn_keyboard_key=0x7f020001;
-        public static final int btn_next=0x7f020002;
-        public static final int btn_play_music=0x7f020003;
-        public static final int ic_dialog_keyboard=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int icon=0x7f020006;
-        public static final int keyboard_backspace=0x7f020007;
-        public static final int normal_key_bg=0x7f020008;
-        public static final int normal_key_hl_bg=0x7f020009;
-        public static final int play_now=0x7f02000a;
-        public static final int play_pause=0x7f02000b;
-        public static final int sym_keyboard_delete=0x7f02000c;
-        public static final int sym_keyboard_done=0x7f02000d;
-        public static final int sym_keyboard_left=0x7f02000e;
-        public static final int sym_keyboard_right=0x7f02000f;
-        public static final int sym_keyboard_search=0x7f020010;
-        public static final int sym_keyboard_shift=0x7f020011;
-        public static final int sym_keyboard_space=0x7f020012;
+        public static final int bg_navigationbar=0x7f020001;
+        public static final int bg_navigationbar_repeat=0x7f020002;
+        public static final int btn_keyboard_key=0x7f020003;
+        public static final int btn_next=0x7f020004;
+        public static final int btn_play_music=0x7f020005;
+        public static final int home_bg_list_item_selector=0x7f020006;
+        public static final int ic_dialog_keyboard=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int icon=0x7f020009;
+        public static final int keyboard_backspace=0x7f02000a;
+        public static final int normal_key_bg=0x7f02000b;
+        public static final int normal_key_hl_bg=0x7f02000c;
+        public static final int play_now=0x7f02000d;
+        public static final int play_pause=0x7f02000e;
+        public static final int shape_rectangle_black=0x7f02000f;
+        public static final int shape_rectangle_red=0x7f020010;
+        public static final int sym_keyboard_delete=0x7f020011;
+        public static final int sym_keyboard_done=0x7f020012;
+        public static final int sym_keyboard_left=0x7f020013;
+        public static final int sym_keyboard_right=0x7f020014;
+        public static final int sym_keyboard_search=0x7f020015;
+        public static final int sym_keyboard_shift=0x7f020016;
+        public static final int sym_keyboard_space=0x7f020017;
     }
     public static final class id {
-        public static final int action_settings=0x7f0c0003;
-        public static final int gv_mix_result_layout=0x7f0c0002;
-        public static final int iv_play=0x7f0c0000;
-        public static final int ll_answer=0x7f0c0001;
+        public static final int action_settings=0x7f0c000c;
+        public static final int cursor=0x7f0c0007;
+        public static final int gv_mix_result_layout=0x7f0c000b;
+        public static final int iv_play=0x7f0c0009;
+        public static final int ll_answer=0x7f0c000a;
+        public static final int tab_action_layout=0x7f0c0000;
+        public static final int tab_circle=0x7f0c0005;
+        public static final int tab_circle_tv=0x7f0c0006;
+        public static final int tab_contacts=0x7f0c0003;
+        public static final int tab_contacts_layout=0x7f0c0002;
+        public static final int tab_dialer=0x7f0c0001;
+        public static final int tab_snsinfo=0x7f0c0004;
+        public static final int tvp_main=0x7f0c0008;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int activity_play=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
@@ -88,6 +113,7 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0a0001;
+        public static final int home_title=0x7f0a0002;
     }
     public static final class xml {
         public static final int qwerty=0x7f040000;

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:layout_width="fill_parent"  
+    android:layout_height="fill_parent"  
+    android:orientation="vertical"
+    android:background="@color/pure_while" >  
+   
+    
+    <ImageView
+        android:id="@+id/iv_play"
+        android:layout_width="@dimen/play_btn_w"
+        android:layout_height="@dimen/play_btn_h"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/img_desc"
+        android:background="@drawable/btn_play_music"/>
+    
+    <LinearLayout
+        android:id="@+id/ll_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:contentDescription="@string/img_desc"
+        android:layout_marginTop="3dip"
+        android:layout_below="@+id/iv_play">
+        
+    </LinearLayout>
+    
+    
+    <GridView
+        android:id="@+id/gv_mix_result_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_black"
+    	android:paddingLeft="5dip"
+    	android:paddingRight="5dip"
+    	android:layout_marginLeft="3dip"
+    	android:layout_marginRight="3dip"
+    	android:layout_alignParentBottom="true"
+    	android:layout_marginBottom="3dip"
+    	android:columnWidth="20dip"
+    	android:stretchMode="columnWidth"
+    	android:gravity="center"
+    	android:layout_gravity="center_vertical"  />
+
+   
+</RelativeLayout>

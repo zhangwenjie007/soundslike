@@ -10,24 +10,22 @@ public class TabViewPage extends ViewPager {
 
 	public TabViewPage(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
-	public boolean onInterceptTouchEvent(MotionEvent arg0) {
-		// TODO Auto-generated method stub
+	public boolean onInterceptTouchEvent(MotionEvent e) {
 		if (mCanDrag) {
-			return super.onInterceptTouchEvent(arg0);
+			return super.onInterceptTouchEvent(e);
 		} else {
 			return false;
 		}
 	}
 
 	@Override
-	public boolean onTouchEvent(MotionEvent arg0) {
-		// TODO Auto-generated method stub
+	public boolean onTouchEvent(MotionEvent e) {
 		if (mCanDrag) {
-			return super.onTouchEvent(arg0);
+			return super.onTouchEvent(e);
 		} else {
 			return false;
 		}

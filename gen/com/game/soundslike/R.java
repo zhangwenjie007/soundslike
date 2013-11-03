@@ -17,6 +17,7 @@ public final class R {
     public static final class color {
         public static final int home_bg_pressed=0x7f060002;
         public static final int lightblack=0x7f060000;
+        public static final int orange=0x7f060007;
         public static final int pt_deep_pink=0x7f060005;
         public static final int pt_top_bg=0x7f060006;
         public static final int pure_while=0x7f060001;
@@ -25,13 +26,11 @@ public final class R {
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
-
-         Customize dimensions originally defined in res/values/dimens.xml (such as
-         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
-    
          */
         public static final int activity_horizontal_margin=0x7f070000;
         public static final int activity_vertical_margin=0x7f070001;
+        public static final int alpha_h=0x7f070008;
+        public static final int alpha_w=0x7f070007;
         public static final int key_height=0x7f070002;
         public static final int play_btn_h=0x7f070004;
         public static final int play_btn_w=0x7f070003;
@@ -65,23 +64,30 @@ public final class R {
         public static final int sym_keyboard_space=0x7f020017;
     }
     public static final class id {
-        public static final int action_settings=0x7f0c000c;
-        public static final int cursor=0x7f0c0007;
-        public static final int gv_mix_result_layout=0x7f0c000b;
-        public static final int iv_play=0x7f0c0009;
-        public static final int ll_answer=0x7f0c000a;
+        public static final int action_settings=0x7f0c0010;
+        public static final int gv_mix_result_layout=0x7f0c0008;
+        public static final int iv_cursor=0x7f0c0004;
+        public static final int iv_play=0x7f0c0006;
+        public static final int list_musics_toshow=0x7f0c0009;
+        public static final int ll_answer=0x7f0c0007;
+        public static final int ll_tips=0x7f0c000a;
+        public static final int music_alpha=0x7f0c000c;
         public static final int tab_action_layout=0x7f0c0000;
-        public static final int tab_circle=0x7f0c0005;
-        public static final int tab_circle_tv=0x7f0c0006;
-        public static final int tab_contacts=0x7f0c0003;
-        public static final int tab_contacts_layout=0x7f0c0002;
-        public static final int tab_dialer=0x7f0c0001;
-        public static final int tab_snsinfo=0x7f0c0004;
-        public static final int tvp_main=0x7f0c0008;
+        public static final int tab_iguass=0x7f0c0002;
+        public static final int tab_sounds_list=0x7f0c0001;
+        public static final int tab_tip=0x7f0c0003;
+        public static final int text_discription=0x7f0c000d;
+        public static final int tv_description=0x7f0c000f;
+        public static final int tv_tip=0x7f0c000b;
+        public static final int tv_title=0x7f0c000e;
+        public static final int tvp_main=0x7f0c0005;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_play=0x7f030001;
+        public static final int activity_playlist=0x7f030002;
+        public static final int current_tip_view=0x7f030003;
+        public static final int music_info_item=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
@@ -91,11 +97,15 @@ public final class R {
         public static final int zqxj=0x7f050001;
     }
     public static final class string {
-        public static final int action_settings=0x7f080001;
-        public static final int app_name=0x7f080000;
-        public static final int hello_world=0x7f080002;
-        public static final int img_desc=0x7f080004;
-        public static final int quickshot=0x7f080003;
+        public static final int action_settings=0x7f080002;
+        public static final int app_name=0x7f080001;
+        public static final int hello_world=0x7f080003;
+        public static final int img_desc=0x7f080005;
+        public static final int img_discription=0x7f080000;
+        public static final int quickshot=0x7f080004;
+        public static final int str_iguass=0x7f080007;
+        public static final int str_list=0x7f080006;
+        public static final int str_tip=0x7f080008;
     }
     public static final class style {
         /** 
@@ -114,6 +124,7 @@ public final class R {
          */
         public static final int AppTheme=0x7f0a0001;
         public static final int home_title=0x7f0a0002;
+        public static final int playlist_tv_name=0x7f0a0003;
     }
     public static final class xml {
         public static final int qwerty=0x7f040000;

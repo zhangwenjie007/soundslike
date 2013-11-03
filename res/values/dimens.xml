@@ -1,3 +1,4 @@
+
 <resources>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
@@ -7,5 +8,7 @@
     <dimen name="play_btn_w">50dip</dimen>
     <dimen name="play_btn_h">50dip</dimen>
     <dimen name="title_bar_hight">48dip</dimen>
-    <dimen name="title">48dip</dimen>
+    <dimen name="title">22dip</dimen>
+    <dimen name="alpha_w">50dip</dimen>
+    <dimen name="alpha_h">50dip</dimen>
 </resources>

@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:background="@color/pure_while" >  
    
-   <FrameLayout
+   <RelativeLayout
         android:id="@+id/tab_action_layout"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/title_bar_hight"
@@ -19,72 +19,42 @@
             android:layout_height="fill_parent"
             android:gravity="center_vertical" 
             android:background="@drawable/bg_navigationbar_repeat">
-
+            
             <TextView
-                android:id="@+id/tab_dialer"
+                android:id="@+id/tab_sounds_list"
                 style="@style/home_title"
-                android:text="shouye"
+                android:text="@string/str_list"
+                android:background="@drawable/home_bg_list_item_selector" />
+            
+            <TextView
+                android:id="@+id/tab_iguass"
+                style="@style/home_title"
+                android:text="@string/str_iguass"
                 android:background="@drawable/home_bg_list_item_selector" />
 
-            <RelativeLayout
-                android:id="@+id/tab_contacts_layout"
-                android:layout_width="0dip"
-                android:layout_height="@dimen/title_bar_hight"
-                android:layout_weight="1"
-                android:background="@drawable/home_bg_list_item_selector" >
-
-                <TextView
-                    android:id="@+id/tab_contacts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:duplicateParentState="true"
-                    android:gravity="center_vertical"
-                    android:text="play"
-                    android:textColor="@color/white_text_orange_return"
-                    android:textSize="@dimen/title" />
-
-            </RelativeLayout>
 
             <TextView
-                android:id="@+id/tab_snsinfo"
+                android:id="@+id/tab_tip"
                 style="@style/home_title"
-                android:background="@drawable/home_bg_list_item_selector"
-                android:text="allsong" />
+                android:text="@string/str_tip"
+                android:background="@drawable/home_bg_list_item_selector" />
 
-            <RelativeLayout
-                android:id="@+id/tab_circle"
-                android:layout_width="0dip"
-                android:layout_height="@dimen/title_bar_hight"
-                android:layout_weight="1"
-                android:background="@drawable/home_bg_list_item_selector" >
-
-                <TextView
-                    android:id="@+id/tab_circle_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
-                    android:layout_centerInParent="true"
-                    android:duplicateParentState="true"
-                    android:gravity="center_vertical"
-                    android:text="group"
-                    android:textColor="@color/white_text_orange_return"
-                    android:textSize="@dimen/title" />
-            </RelativeLayout>
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/cursor"
-            android:layout_width="10dip"
-            android:layout_height="5dip"
-            android:layout_gravity="bottom"
-            android:scaleType="matrix"
-            android:src="@color/pt_deep_pink" />
-    </FrameLayout>
+            </LinearLayout>
+            <ImageView
+	            android:id="@+id/iv_cursor"
+	            android:layout_width="10dip"
+	            android:layout_height="5dip"
+	            android:layout_gravity="bottom"
+	            android:contentDescription="@string/hello_world"
+	            android:layout_alignParentBottom="true"
+	            android:scaleType="matrix"
+	            android:src="@color/pt_deep_pink" />
+    </RelativeLayout>
     
     <com.game.soundslike.widget.TabViewPage
         android:id="@+id/tvp_main"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/tab_action_layout"/>
 
 </RelativeLayout>

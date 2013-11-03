@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView 
+        android:id="@+id/music_alpha"
+        android:layout_width="@dimen/alpha_w" 
+        android:layout_height="@dimen/alpha_h"
+        android:layout_margin="5dp"
+        android:contentDescription="@string/img_desc"
+        android:src="@drawable/icon"/>
+    
+    <LinearLayout
+        android:id="@+id/text_discription"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:orientation="vertical" >
+
+    	<TextView
+    	    android:id="@+id/tv_title"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="双节棍"
+    	    android:textSize="20sp" />
+
+    	<TextView
+    	    android:id="@+id/tv_description"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:text="一首周董早期的摇滚风格的歌曲,红遍全中国啊！"
+    	    android:textColor="@color/orange" />
+	
+    </LinearLayout>
+</LinearLayout>

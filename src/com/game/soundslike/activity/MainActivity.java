@@ -18,6 +18,7 @@ import android.widget.ImageView;
 
 import com.game.soundslike.R;
 import com.game.soundslike.adapter.HomeAdapter;
+import com.game.soundslike.constants.ConstantsParamers;
 import com.game.soundslike.widget.TabViewPage;
 
 @SuppressWarnings("deprecation")
@@ -85,7 +86,6 @@ public class MainActivity extends ActivityGroup implements OnClickListener{
 	 */
 	private void moveCursorToCurrentIndex(int idx){
 		 Animation anim = new TranslateAnimation(offset*current_pos, offset*idx, 0, 0);
-		 current_pos = idx;
 		 anim.setDuration(200);
 		 anim.setFillAfter(true);
 		 iv_cursor.startAnimation(anim);
@@ -99,7 +99,16 @@ public class MainActivity extends ActivityGroup implements OnClickListener{
 		Matrix matrix = new Matrix();
 		matrix.postTranslate(offset, 0);
 		iv_cursor.getLayoutParams().width = offset;
-		current_pos = 0;
+		Intent intent = getIntent();
+		String  entryClassName = intent.getExtras().getString(ConstantsParamers.CURRENT_PAGE_IDX);
+		if(entryClassName == null || entryClassName.equals("music_list")){
+			current_pos = 0;
+		}else if(entryClassName.equals("play")){
+			current_pos = 1;
+		}else if(entryClassName.equals("tips")){
+			current_pos = 2;
+		}
+		viewPager.setCurrentItem(current_pos);
 		iv_cursor.setImageMatrix(matrix);
 	}
 	

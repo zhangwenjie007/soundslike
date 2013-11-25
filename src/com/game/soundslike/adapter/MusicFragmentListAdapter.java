@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.game.soundslike.R;
+import com.game.soundslike.activity.MainActivity;
 import com.game.soundslike.activity.PlayActivity;
 import com.game.soundslike.constants.ConstantsParamers;
 import com.game.soundslike.info.MusicFragmentInfo;
@@ -76,9 +77,9 @@ public class MusicFragmentListAdapter extends BaseAdapter{
 				
 				@Override
 				public void onClick(View v) {
-					Intent play_it =  new Intent();
-					play_it.setClass(context, PlayActivity.class);
-					// Ä¿Ç°ÒôÀÖÎÄ¼şÓĞ3ÖÖ£¬´ò°üµ½apkÖĞ £»±¾µØsd¿¨ÖĞ £»ÍøÂçÖĞ£»
+					Intent play_it =  new Intent(context, MainActivity.class);
+					play_it.putExtra(ConstantsParamers.CURRENT_PAGE_IDX, "play_list");
+					// ç›®å‰éŸ³ä¹æ–‡ä»¶æœ‰3ç§ï¼Œæ‰“åŒ…åˆ°apkä¸­ ï¼›æœ¬åœ°sdå¡ä¸­ ï¼›ç½‘ç»œä¸­ï¼›
 					if(music_info.getRawId() != -1){
 						play_it.putExtra(ConstantsParamers.MUSIC_INFO, music_info);
 						context.startActivity(play_it);

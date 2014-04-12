@@ -1,8 +1,9 @@
-package com.game.soundslike.activity;
+package com.game.soundslike.ui.activity;
 
 
 import android.os.Bundle;
 import android.widget.TextView;
+
 import com.game.soundslike.R;
 
 public class TipsActivity extends BaseActivity {

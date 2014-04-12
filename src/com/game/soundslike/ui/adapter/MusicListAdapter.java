@@ -1,11 +1,10 @@
 
-package com.game.soundslike.adapter;
+package com.game.soundslike.ui.adapter;
 
 import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
-import android.provider.SyncStateContract.Constants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,16 +14,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.game.soundslike.R;
-import com.game.soundslike.activity.MainActivity;
-import com.game.soundslike.activity.PlayActivity;
 import com.game.soundslike.constants.ConstantsParamers;
-import com.game.soundslike.info.MusicFragmentInfo;
+import com.game.soundslike.info.MusicInfo;
+import com.game.soundslike.ui.activity.PlayActivity;
 
-public class MusicFragmentListAdapter extends BaseAdapter{
+public class MusicListAdapter extends BaseAdapter{
 
-	private List<MusicFragmentInfo> music_list = null;
+	private List<MusicInfo> music_list = null;
 	Context context;
-	public MusicFragmentListAdapter(Context _context, List<MusicFragmentInfo> music_list){
+	public MusicListAdapter(Context _context, List<MusicInfo> music_list){
 		this.context = _context;
 		this.music_list = music_list;
 	}
@@ -67,7 +65,7 @@ public class MusicFragmentListAdapter extends BaseAdapter{
 			LayoutInflater inflater = LayoutInflater.from(context);
 			view = inflater.inflate(R.layout.music_info_item, null);
 			holder = new ViewHolder(context, view);	
-			final MusicFragmentInfo music_info = music_list.get(idx);
+			final MusicInfo music_info = music_list.get(idx);
 			holder.title.setText(music_info.getName() + "-" + music_info.getBand());
 			holder.content.setText(music_info.getDiscription());
 			holder.icon.setImageResource(R.drawable.icon);
@@ -77,9 +75,9 @@ public class MusicFragmentListAdapter extends BaseAdapter{
 				
 				@Override
 				public void onClick(View v) {
-					Intent play_it =  new Intent(context, MainActivity.class);
-					play_it.putExtra(ConstantsParamers.CURRENT_PAGE_IDX, "play_list");
-					// 目前音乐文件有3种，打包到apk中 ；本地sd卡中 ；网络中；
+					Intent play_it =  new Intent();
+					play_it.setClass(context, PlayActivity.class);
+					// Ŀǰ�����ļ���3�֣����apk�� ������sd���� �������У�
 					if(music_info.getRawId() != -1){
 						play_it.putExtra(ConstantsParamers.MUSIC_INFO, music_info);
 						context.startActivity(play_it);

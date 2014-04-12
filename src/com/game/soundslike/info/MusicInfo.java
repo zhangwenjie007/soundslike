@@ -2,7 +2,7 @@ package com.game.soundslike.info;
 
 import java.io.Serializable;
 
-public class MusicFragmentInfo implements Serializable{
+public class MusicInfo implements Serializable{
 	
 	/**
 	 * 

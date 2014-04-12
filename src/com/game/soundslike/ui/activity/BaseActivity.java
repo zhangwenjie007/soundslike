@@ -1,4 +1,4 @@
-package com.game.soundslike.activity;
+package com.game.soundslike.ui.activity;
 
 import android.app.Activity;
 

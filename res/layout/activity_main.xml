@@ -3,58 +3,11 @@
     android:layout_width="fill_parent"  
     android:layout_height="fill_parent"  
     android:orientation="vertical"
-    android:background="@color/pure_while" >  
-   
-   <RelativeLayout
-        android:id="@+id/tab_action_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/title_bar_hight"
-        android:background="@color/pt_top_bg"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:visibility="visible" >
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:gravity="center_vertical" 
-            android:background="@drawable/bg_navigationbar_repeat">
-            
-            <TextView
-                android:id="@+id/tab_sounds_list"
-                style="@style/home_title"
-                android:text="@string/str_list"
-                android:background="@drawable/home_bg_list_item_selector" />
-            
-            <TextView
-                android:id="@+id/tab_iguass"
-                style="@style/home_title"
-                android:text="@string/str_iguass"
-                android:background="@drawable/home_bg_list_item_selector" />
-
-
-            <TextView
-                android:id="@+id/tab_tip"
-                style="@style/home_title"
-                android:text="@string/str_tip"
-                android:background="@drawable/home_bg_list_item_selector" />
-
-            </LinearLayout>
-            <ImageView
-	            android:id="@+id/iv_cursor"
-	            android:layout_width="10dip"
-	            android:layout_height="5dip"
-	            android:layout_gravity="bottom"
-	            android:contentDescription="@string/hello_world"
-	            android:layout_alignParentBottom="true"
-	            android:scaleType="matrix"
-	            android:src="@color/pt_deep_pink" />
-    </RelativeLayout>
+    android:background="@color/pure_while" >
     
-    <com.game.soundslike.widget.TabViewPage
-        android:id="@+id/tvp_main"
+    <com.game.soundslike.widget.MainActivityViewPager
+        android:id="@+id/home_viewpager"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/tab_action_layout"/>
+        android:layout_height="fill_parent" />
 
 </RelativeLayout>

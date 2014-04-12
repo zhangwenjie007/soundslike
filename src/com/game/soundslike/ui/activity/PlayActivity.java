@@ -1,4 +1,4 @@
-package com.game.soundslike.activity;
+package com.game.soundslike.ui.activity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,8 +17,6 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -32,9 +30,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.game.soundslike.R;
-import com.game.soundslike.adapter.MyTextAdapter;
 import com.game.soundslike.constants.ConstantsParamers;
-import com.game.soundslike.info.MusicFragmentInfo;
+import com.game.soundslike.info.MusicInfo;
+import com.game.soundslike.ui.adapter.MyTextAdapter;
 
 public class PlayActivity extends Activity implements OnClickListener{
 	Activity act;
@@ -63,14 +61,14 @@ public class PlayActivity extends Activity implements OnClickListener{
 		
 		Intent intent = getIntent();
 		if(null != intent && null != intent.getExtras()){
-			MusicFragmentInfo info = (MusicFragmentInfo)intent.getExtras().getSerializable(
+			MusicInfo info = (MusicInfo)intent.getExtras().getSerializable(
 					ConstantsParamers.MUSIC_INFO);
 			System.out.println("music_info" + info.toString());
 			if(info.getRawId() == R.raw.kdxf){
 				current_music = 0;
 			}
 		}
-		act = (Activity)this;
+		act = this;
 		ctx = this;
 		btn_play = (ImageView)findViewById(R.id.iv_play);
 		btn_play.setOnClickListener(this);
@@ -123,21 +121,6 @@ public class PlayActivity extends Activity implements OnClickListener{
 	}
 	
 	
-	private final static Handler changeIconHandler = new Handler(){
-
-		@Override
-		public void handleMessage(Message msg) {
-			super.handleMessage(msg);
-			int play_or_stop = msg.what;
-			if(play_or_stop == 0){
-				mediaPlayer.pause();
-			}else if(play_or_stop == 1){
-				mediaPlayer.start();
-			}
-		}
-		
-	};
-	
 	private void reloadData(){
 		textAdapter.setData(reloadMixResult());
 		textAdapter.notifyDataSetChanged(); // 下面的答案文字重新刷新
@@ -151,7 +134,8 @@ public class PlayActivity extends Activity implements OnClickListener{
 		textAdapter = new MyTextAdapter(this, fillList);
 		gridview.setAdapter(textAdapter);
 		gridview.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+			@Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 					TextView tv = (TextView)v;
 					String text = tv.getText().toString();
 					if(!text.equals(" ")){
@@ -265,33 +249,25 @@ public class PlayActivity extends Activity implements OnClickListener{
 		}
 	}
 	
+	
+	
+	
 	@Override
 	public void onClick(View v) {
 		switch(v.getId()){
 		case R.id.iv_play:
 			{
-				if(mediaPlayer == null){
-						mediaPlayer = MediaPlayer.create(ctx, music_id[current_music]);
-						if(mediaPlayer == null){
-							return;
-						}else{ // 设置一下监听器监听音乐播放完毕之后
-							mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
-								@Override
-								public void onCompletion(MediaPlayer mp) {
-									// 音乐播放按钮图标变回等待播放的方式
-									btn_play.setBackgroundResource(R.drawable.play_now);
-								}
-							});
-						}
-				}
-				if(mediaPlayer.isPlaying()){
-					btn_play.setBackgroundResource(R.drawable.play_now);
-					changeIconHandler.sendEmptyMessage(0);
-					
-				}else{
-					btn_play.setBackgroundResource(R.drawable.play_pause);
-					changeIconHandler.sendEmptyMessage(1);
-				}
+			    // 
+                OnCompletionListener completionListener = new OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        // 音乐播放按钮图标变回等待播放的方式
+                        btn_play.setBackgroundResource(R.drawable.play_now);
+                    }
+                };
+			    Intent playIntent = new Intent(ConstantsParamers.PLAY_NEW_SOUNDS);
+			    playIntent.putExtra(ConstantsParamers.MUSIC_INFO, new MusicInfo());
+			    startService(playIntent);
 				break;
 			}
 			case 0: // 给按钮的id

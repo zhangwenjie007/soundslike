@@ -43,20 +43,15 @@ public class MyTextAdapter extends BaseAdapter {
 	public View getView(int idx, View v, ViewGroup parentViewGroup) {
 		
 	    TextView tv = null;
-	    
-	    if(v != null){
-	        tv = (TextView)v.getTag();
-	    }else{
-	        v = new TextView(context);
-	        Log.v("TEST", "we got text" + list.get(idx));
-	        tv.setText(list.get(idx));
-	        tv.setGravity(Gravity.CENTER);
-	        tv.setPadding(5, 5, 5, 5);
-	        tv.setTextSize(20);
-	        tv.setId(idx);
-	        tv.setTextColor(Color.BLACK);
-	        v.setTag(tv);
-	    }
+        tv = new TextView(context);
+        Log.v("TEST", "we got text" + list.get(idx));
+        tv.setText(list.get(idx));
+        tv.setGravity(Gravity.CENTER);
+        tv.setPadding(5, 5, 5, 5);
+        tv.setTextSize(20);
+        tv.setId(idx);
+        tv.setTextColor(Color.BLACK);
+        tv.setTag(tv); 
 	    
 		return tv;
 	}

@@ -14,15 +14,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.game.soundslike.R;
+import com.game.soundslike.bean.MusicInfoBean;
 import com.game.soundslike.constants.ConstantsParamers;
-import com.game.soundslike.info.MusicInfo;
 import com.game.soundslike.ui.activity.PlayActivity;
 
 public class MusicListAdapter extends BaseAdapter{
 
-	private List<MusicInfo> music_list = null;
+	private List<MusicInfoBean> music_list = null;
 	Context context;
-	public MusicListAdapter(Context _context, List<MusicInfo> music_list){
+	public MusicListAdapter(Context _context, List<MusicInfoBean> music_list){
 		this.context = _context;
 		this.music_list = music_list;
 	}
@@ -65,7 +65,7 @@ public class MusicListAdapter extends BaseAdapter{
 			LayoutInflater inflater = LayoutInflater.from(context);
 			view = inflater.inflate(R.layout.music_info_item, null);
 			holder = new ViewHolder(context, view);	
-			final MusicInfo music_info = music_list.get(idx);
+			final MusicInfoBean music_info = music_list.get(idx);
 			holder.title.setText(music_info.getName() + "-" + music_info.getBand());
 			holder.content.setText(music_info.getDiscription());
 			holder.icon.setImageResource(R.drawable.icon);

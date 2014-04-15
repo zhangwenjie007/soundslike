@@ -20,6 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+        
+        <!-- 后台音乐播放 服务-->
+        <service android:name=".service.CoreService"  />  
+            
+            </application>
 
 </manifest>

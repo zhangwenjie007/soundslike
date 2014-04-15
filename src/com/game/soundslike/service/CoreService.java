@@ -2,33 +2,37 @@
  * 2014.03.22
  * author: tom
  * description:这个服务主要用来后台播放声音，各种声音都可以的。.mp3/wav/来自网络的。。
+ * 当播放完成、停止之后会发送广播给通知观察者
  */
 package com.game.soundslike.service;
 
-import java.io.IOException;
-
 import android.app.IntentService;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
+import android.net.Uri;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
+import android.text.TextUtils;
+import android.widget.Toast;
 
+import com.game.soundslike.bean.MusicInfoBean;
 import com.game.soundslike.constants.ConstantsParamers;
-import com.game.soundslike.info.MusicInfo;
 
 /**
  * @author Administrator
  *
  */
 public class CoreService extends IntentService{
-
     
-    // 给外部提供播放结束的回调接口
-    interface PlayListener{
-        public void onStop();
-        public void onCompleted();
-    }
+    
+    //音乐的路径
+    private static final String MUSIC_PATH = new String("/sdcard/");
+    
+    // 上下文
+    Context mContext = null;
     
     OnCompletionListener mCompletionListener = new OnCompletionListener() {
         
@@ -54,43 +58,64 @@ public class CoreService extends IntentService{
     };
     
     
+    private Handler mMainHandler;
+    
+    public CoreService() {
+        super("CoreService");
+        mContext = this;
+        mMainHandler = new Handler(Looper.getMainLooper());
+    }
+    
     /**
      * @param name
      */
     public CoreService(String name) {
-        super(name);
+        super(name); 
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        mediaPlayer = new MediaPlayer();
         // 开始播放音乐
         if(ConstantsParamers.PLAY_NEW_SOUNDS.equals(intent.getAction())){
-            if(mediaPlayer == null){
-                MusicInfo musicInfo = (MusicInfo)intent.getExtras().get(ConstantsParamers.MUSIC_INFO);
-                mediaPlayer = MediaPlayer.create(this, musicInfo.getRawId());
-                if(mediaPlayer == null){
-                    return;
-                }else{ // 设置一下监听器监听音乐播放完毕之后
-                    mediaPlayer.setOnCompletionListener(mCompletionListener);
-                    try {
-                        mediaPlayer.prepare();
-                        mediaPlayer.start();
-                    } catch (IllegalStateException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+            if(mediaPlayer != null){
+                MusicInfoBean musicInfo = (MusicInfoBean)intent.getExtras().get(ConstantsParamers.MUSIC_INFO);
+                playMusic(musicInfo);
+                Toast.makeText(mContext, "you are play music", Toast.LENGTH_SHORT).show();
+            } 
+        } else if(ConstantsParamers.PAUSE_SOUNDS.equals(intent.getAction())){
+            if(mediaPlayer != null){
+                mediaPlayer.pause();
             }
-            if(mediaPlayer.isPlaying()){
-                changeIconHandler.sendEmptyMessage(ConstantsParamers.CORE_SERVICE_MUSIC_PAUSE);
-            }else{
-                changeIconHandler.sendEmptyMessage(ConstantsParamers.CORE_SERVICE_MUSIC_STOP);
+        } else if(ConstantsParamers.PAUSE_SOUNDS.equals(intent.getAction())){
+            if(mediaPlayer != null){
+                mediaPlayer.pause();
             }
-         } 
-        // 停止播放音乐 
-        //else if(Constants.STOP_PLAY_SOUNDS.equals(intent.getAction())){
-}
-       
-    
+        }
+    }
+        
+      //播放音乐 
+        private void playMusic(MusicInfoBean musicInfoBean){
+            try {  
+                 if(musicInfoBean.getRawId() != 0){ 
+                     mediaPlayer = MediaPlayer.create(mContext, musicInfoBean.getRawId());
+                 }else if(TextUtils.isEmpty(musicInfoBean.getMusicSrc())){
+                     mediaPlayer.setDataSource( MUSIC_PATH + musicInfoBean.getMusicSrc() );
+                 }else if(TextUtils.isEmpty(musicInfoBean.getMusicSrc())){
+                     mediaPlayer.setDataSource(mContext, Uri.parse(musicInfoBean.getMusicUrl()));
+                 }
+     
+                 mediaPlayer.prepare();
+                 mediaPlayer.start();
+                 mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
+                     
+                     @Override
+                     public void onCompletion(MediaPlayer mp) { 
+                          
+                     }
+                 });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 }

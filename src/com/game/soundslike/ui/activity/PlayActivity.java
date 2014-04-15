@@ -30,8 +30,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.game.soundslike.R;
+import com.game.soundslike.bean.MusicInfoBean;
 import com.game.soundslike.constants.ConstantsParamers;
-import com.game.soundslike.info.MusicInfo;
 import com.game.soundslike.ui.adapter.MyTextAdapter;
 
 public class PlayActivity extends Activity implements OnClickListener{
@@ -61,7 +61,7 @@ public class PlayActivity extends Activity implements OnClickListener{
 		
 		Intent intent = getIntent();
 		if(null != intent && null != intent.getExtras()){
-			MusicInfo info = (MusicInfo)intent.getExtras().getSerializable(
+			MusicInfoBean info = (MusicInfoBean)intent.getExtras().getSerializable(
 					ConstantsParamers.MUSIC_INFO);
 			System.out.println("music_info" + info.toString());
 			if(info.getRawId() == R.raw.kdxf){
@@ -266,7 +266,7 @@ public class PlayActivity extends Activity implements OnClickListener{
                     }
                 };
 			    Intent playIntent = new Intent(ConstantsParamers.PLAY_NEW_SOUNDS);
-			    playIntent.putExtra(ConstantsParamers.MUSIC_INFO, new MusicInfo());
+			    playIntent.putExtra(ConstantsParamers.MUSIC_INFO, new MusicInfoBean());
 			    startService(playIntent);
 				break;
 			}

@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
+import android.media.MediaPlayer.OnErrorListener;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
@@ -25,7 +26,8 @@ import com.game.soundslike.constants.ConstantsParamers;
  * @author Administrator
  *
  */
-public class CoreService extends IntentService{
+public class CoreService extends IntentService 
+    implements OnErrorListener{
     
     
     //音乐的路径
@@ -64,6 +66,7 @@ public class CoreService extends IntentService{
         super("CoreService");
         mContext = this;
         mMainHandler = new Handler(Looper.getMainLooper());
+//        mediaPlayer = new MediaPlayer();
     }
     
     /**
@@ -75,14 +78,14 @@ public class CoreService extends IntentService{
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        mediaPlayer = new MediaPlayer();
+//        mediaPlayer.setOnErrorListener(this);
         // 开始播放音乐
         if(ConstantsParamers.PLAY_NEW_SOUNDS.equals(intent.getAction())){
-            if(mediaPlayer != null){
+//            if(mediaPlayer != null){
                 MusicInfoBean musicInfo = (MusicInfoBean)intent.getExtras().get(ConstantsParamers.MUSIC_INFO);
                 playMusic(musicInfo);
                 Toast.makeText(mContext, "you are play music", Toast.LENGTH_SHORT).show();
-            } 
+//            } 
         } else if(ConstantsParamers.PAUSE_SOUNDS.equals(intent.getAction())){
             if(mediaPlayer != null){
                 mediaPlayer.pause();
@@ -98,7 +101,14 @@ public class CoreService extends IntentService{
         private void playMusic(MusicInfoBean musicInfoBean){
             try {  
                  if(musicInfoBean.getRawId() != 0){ 
+//                     if(mediaPlayer != null){
+//                         mediaPlayer.reset();
+//                         mediaPlayer.release();
+//                         mediaPlayer = null;
+//                     }
                      mediaPlayer = MediaPlayer.create(mContext, musicInfoBean.getRawId());
+//                     mediaPlayer.setDataSource(mContext, Uri.parse());
+                     mediaPlayer.setOnErrorListener(this);
                  }else if(TextUtils.isEmpty(musicInfoBean.getMusicSrc())){
                      mediaPlayer.setDataSource( MUSIC_PATH + musicInfoBean.getMusicSrc() );
                  }else if(TextUtils.isEmpty(musicInfoBean.getMusicSrc())){
@@ -117,5 +127,10 @@ public class CoreService extends IntentService{
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+
+        @Override
+        public boolean onError(MediaPlayer mp, int what, int extra) {
+            return false;
         }
 }

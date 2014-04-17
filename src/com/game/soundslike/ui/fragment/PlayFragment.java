@@ -77,6 +77,9 @@ public class PlayFragment extends Fragment
     
     Activity activity = null;
     Fragment fragment;
+
+    private boolean is_playing = false;
+    
     /**
      * Fragment的生命周期的相关方法
      */
@@ -275,10 +278,24 @@ public class PlayFragment extends Fragment
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_play:
-                reloadMusic();
+                if(!is_playing){
+                    reloadMusic();
+                }else{
+                    stopMusic();
+                }
                 break;
             default:
                 break;
         }
+    }
+
+    /**
+     * 停止当前播放的音乐
+     */
+    private void stopMusic() {
+        // 启动服务播放数据
+        Intent serviceIntent = new Intent(activity, CoreService.class);
+        serviceIntent.setAction(ConstantsParamers.PAUSE_SOUNDS); 
+        activity.startService(serviceIntent);
     }
 }
